@@ -12,10 +12,12 @@ Bonfire는 이러한 기준을 프로젝트와 함께 관리하기 위해 만들
 
 | 스킬 | 역할 |
 | --- | --- |
-| [workflow](.agents/skills/workflow/SKILL.md) | 요구를 듣고 기준을 갱신하며 구현·검증·인계하는 작업 절차 |
-| [golden_path](.agents/skills/golden_path/SKILL.md) | 현재 프로젝트의 요구사항·선택·제약·예외와 참고할 기준 관리 |
+| [workflow](skills/workflow/SKILL.md) | 요구를 듣고 기준을 갱신하며 구현·검증·인계하는 작업 절차 |
+| [golden_path](skills/golden_path/SKILL.md) | 현재 프로젝트의 요구사항·선택·제약·예외와 참고할 기준 관리 |
 
 workflow가 golden_path의 현재 기준을 적용하고, 새 요구가 생기면 관련 기준을 갱신합니다.
+
+두 스킬의 본문과 프로젝트별 기준은 모두 프로젝트 루트의 `skills/`에 둡니다. `AGENTS.md`가 이 경로를 연결하므로 `.agents` 쓰기 권한 없이 기준을 갱신할 수 있습니다.
 
 ## 항상 확인하는 핵심과 필요한 영역 구분
 
@@ -24,7 +26,7 @@ workflow가 golden_path의 현재 기준을 적용하고, 새 요구가 생기�
 ```text
 AGENTS.md
 docs/examples/skill-connection.md  설명용 스킬 연결 사례
-.agents/skills/
+skills/
 ├─ workflow/SKILL.md
 └─ golden_path/
    ├─ SKILL.md
@@ -40,18 +42,18 @@ docs/examples/skill-connection.md  설명용 스킬 연결 사례
 
 | 자료 | 읽는 범위 |
 | --- | --- |
-| [core.md](.agents/skills/golden_path/references/core.md) | 작업 시작에 현재 목적·범위·핵심 결정·제약 확인 |
-| [project-rules.md](.agents/skills/golden_path/references/project-rules.md) | 영역 선택에 사용. 상세 기준은 관련 영역 파일만 읽음 |
-| [skills.md](.agents/skills/golden_path/references/skills.md) | 상태·조건 확인. 항상 참고할 부분과 필요시 부분을 구분 |
-| [skill-management.md](.agents/skills/golden_path/references/skill-management.md) | 스킬 추가·변경·중지·제거를 요청받았을 때만 읽음 |
-| [decisions.md](.agents/skills/golden_path/references/decisions.md) | 과거 결정의 이유가 필요할 때 해당 내용만 읽음 |
-| [transfer.md](.agents/skills/golden_path/references/transfer.md) | 프로젝트 기준을 내보내거나 가져올 때만 읽음 |
+| [core.md](skills/golden_path/references/core.md) | 작업 시작에 현재 목적·범위·핵심 결정·제약 확인 |
+| [project-rules.md](skills/golden_path/references/project-rules.md) | 영역 선택에 사용. 상세 기준은 관련 영역 파일만 읽음 |
+| [skills.md](skills/golden_path/references/skills.md) | 상태·조건 확인. 항상 참고할 부분과 필요시 부분을 구분 |
+| [skill-management.md](skills/golden_path/references/skill-management.md) | 스킬 추가·변경·중지·제거를 요청받았을 때만 읽음 |
+| [decisions.md](skills/golden_path/references/decisions.md) | 과거 결정의 이유가 필요할 때 해당 내용만 읽음 |
+| [transfer.md](skills/golden_path/references/transfer.md) | 프로젝트 기준을 내보내거나 가져올 때만 읽음 |
 
 시작 안내는 진입점, workflow는 작업 절차, golden_path는 읽기·갱신 규칙을 맡습니다. 현재 핵심 기준에는 프로젝트의 중요한 결론과 상세 위치만 남깁니다. 세부 규칙은 책임 영역 한곳에 두고 다른 영역에서는 연결합니다. 이력은 현재 기준을 대체하지 않습니다.
 
 ## 필요한 영역 선택
 
-범용 목록은 목적·기능·제약·기술·구조·데이터·보안·UI·연동·성능·검증·Git·운영·문서의 14개 분야, 67개 초기 항목으로 구성됩니다. 전체 항목은 [영역별 색인](.agents/skills/golden_path/references/project-rules.md)에서 확인할 수 있습니다.
+범용 목록은 목적·기능·제약·기술·구조·데이터·보안·UI·연동·성능·검증·Git·운영·문서의 14개 분야, 67개 초기 항목으로 구성됩니다. 전체 항목은 [영역별 색인](skills/golden_path/references/project-rules.md)에서 확인할 수 있습니다.
 
 - 처음 프로젝트를 정의할 때는 색인 전체의 적용 여부를 살펴보고 필요한 영역부터 구체화합니다.
 - 개발 중에는 핵심과 현재 작업·변경 영향에 관련된 영역만 확인합니다.
@@ -130,7 +132,7 @@ context/
 
 이 묶음에는 코드와 스킬 실행 지침이 없습니다. 대상에 Bonfire가 없다면 이 템플릿이나 [설치용 Bonfire 스킬](https://github.com/shnea/bonfire_skill)로 기본 구성을 먼저 마련합니다. 기준 복원만으로 제품이나 실행 환경이 복원되지는 않습니다. 접근할 수 없는 참조 등 누락이 있으면 내보내기 목록과 가져오기 결과에 표시합니다.
 
-원본의 `golden_path`와 설치용 스킬의 `golden-path`는 동일한 **문서 묶음 형식 v1**을 사용합니다. 자세한 포함 범위·검사·병합 규칙은 [내보내기·가져오기 절차](.agents/skills/golden_path/references/transfer.md)에 있습니다.
+원본의 `golden_path`와 설치용 스킬의 `golden-path`는 동일한 **문서 묶음 형식 v1**을 사용합니다. 자세한 포함 범위·검사·병합 규칙은 [내보내기·가져오기 절차](skills/golden_path/references/transfer.md)에 있습니다.
 
 ## 전문 스킬 연결
 

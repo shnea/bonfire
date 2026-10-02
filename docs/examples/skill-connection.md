@@ -1,6 +1,6 @@
 # 스킬 연결 예시
 
-설명용 참고 자료다. 스킬 연결 작업마다 읽는 필수 지침이 아니다. 실제 연결은 [스킬 연결 절차](../../.agents/skills/golden_path/references/skill-management.md)를 따른다.
+설명용 참고 자료다. 스킬 연결 작업마다 읽는 필수 지침이 아니다. 실제 연결은 [스킬 연결 절차](../../skills/golden_path/references/skill-management.md)를 따른다.
 
 ## 설명용 예시: 구현 단순화 스킬 연결
 
